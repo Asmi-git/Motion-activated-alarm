@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "author": "Asmi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 125.4, "left": 9, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -111.2,
+      "left": 184.62,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -122.4,
+      "left": 21,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir2",
+      "top": -63.2,
+      "left": -199.38,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -90, "left": -284.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -80.4,
+      "left": 320.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 4.8,
+      "left": 335.45,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 24,
+      "left": -259.75,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 35.2,
+      "left": 418.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "pir1:VCC", "uno:5V", "red", [ "v86.4", "h96", "v326.4", "h-153.6" ] ],
+    [ "pir1:GND", "uno:GND.1", "black", [ "v48", "h-125.06", "v-9.6" ] ],
+    [ "bz1:1", "uno:GND.2", "black", [ "v86.4", "h-124.8", "v288", "h240", "v0", "h9.6" ] ],
+    [ "bz1:2", "uno:8", "orange", [ "v96", "h114.8" ] ],
+    [ "pir2:VCC", "uno:5V", "red", [ "v422.4", "h336" ] ],
+    [ "pir1:OUT", "uno:3", "green", [ "v0" ] ],
+    [ "pir2:OUT", "uno:2", "green", [ "v19.2", "h431.86" ] ],
+    [ "pir2:GND", "uno:GND.1", "black", [ "v57.6", "h278.14" ] ],
+    [ "lcd1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-134.4", "v441.7", "h-134.4" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h-48", "v259.4", "h-124.8" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h-38.4", "v269.1", "h-115.2" ] ],
+    [ "led1:A", "r2:1", "green", [ "v9.6", "h28.8" ] ],
+    [ "r2:2", "uno:4", "green", [ "h0" ] ],
+    [ "led2:A", "r1:1", "green", [ "v0", "h19.2" ] ],
+    [ "r1:2", "uno:5", "green", [ "h0" ] ],
+    [ "led1:C", "uno:GND.3", "black", [ "v460.8", "h19.6" ] ],
+    [ "led2:C", "uno:GND.2", "black", [ "v499.2", "h-134" ] ]
+  ],
+  "dependencies": {}
+}
